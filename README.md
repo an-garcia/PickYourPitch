@@ -1,8 +1,8 @@
 # PickYourPitch
 
 
-![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-27at16.07.19x.png)
-![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-27at18.18.34x.png)
+![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-29at19.37.46.png)
+![Scheme](/screenshots/SimulatorScreenShot-iPhone8Plus-2017-11-29at19.37.54.png)
 
 
 PickYourPitch is an iOS sample application that stores user preferences using UserDefaults.
