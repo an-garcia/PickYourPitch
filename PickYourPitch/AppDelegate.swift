@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
         print("App Delegate: did become active")
+        checkIfFirstLaunch()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -65,5 +66,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("App Delegate: will terminate")
     }
+    
+    
+    func checkIfFirstLaunch() {
+        if UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
+            print("App has launched before")
+        } else {
+            print("This is the first launch ever!")
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            UserDefaults.standard.set(2.19295, forKey: "sliderValue")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
 }
 

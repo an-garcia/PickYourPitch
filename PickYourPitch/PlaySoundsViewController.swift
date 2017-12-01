@@ -47,6 +47,10 @@ class PlaySoundsViewController: UIViewController {
         }
         
         setUserInterfaceToPlayMode(false)
+        
+        // read the value for slider from defaults
+        let sliderValue = UserDefaults.standard.float(forKey: "sliderValue")
+        sliderView.value = sliderValue
     }
     
     // MARK: Set Interface
@@ -80,6 +84,7 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func sliderDidMove(_ sender: UISlider) {
         print("Slider vaue: \(sliderView.value)")
+        UserDefaults.standard.set(sliderView.value, forKey: "sliderValue")
     }
     
     // MARK: Play Audio
