@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("App Delegate: did become active")
         checkIfFirstLaunch()
+        sandboxPlayground()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -76,6 +77,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
             UserDefaults.standard.set(2.19295, forKey: "sliderValue")
             UserDefaults.standard.synchronize()
+        }
+    }
+    
+    // Sample of writing a file to the sandbox
+    func sandboxPlayground() {
+        // Writing & Reading From The Sandbox
+        let fm = FileManager.default
+        let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+        let url = urls.last?.appendingPathComponent("file.txt")
+        
+        do {
+            try "Hi There!".write(to: url!, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("Error while writing")
+        }
+        
+        do {
+            let content = try String(contentsOf: url!, encoding: String.Encoding.utf8)
+            
+            if content == "Hi There!" {
+                print("yay")
+            } else {
+                print("oops")
+            }
+        } catch {
+            print("Something went wrong")
         }
     }
     
