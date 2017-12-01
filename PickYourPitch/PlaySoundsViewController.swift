@@ -74,6 +74,8 @@ class PlaySoundsViewController: UIViewController {
         // Set the UI
         setUserInterfaceToPlayMode(true)
         
+        // Save the slider value
+        UserDefaults.standard.set(sliderView.value, forKey: "sliderValue")
     }
     
     @IBAction func stopAudio(_ sender: UIButton) {
@@ -84,7 +86,6 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func sliderDidMove(_ sender: UISlider) {
         print("Slider vaue: \(sliderView.value)")
-        UserDefaults.standard.set(sliderView.value, forKey: "sliderValue")
     }
     
     // MARK: Play Audio
